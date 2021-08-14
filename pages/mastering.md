@@ -1,6 +1,8 @@
 # Mastering Git
 <br />
 
+[go back to basics](../README.md)
+
 > <br /> Learning the "Git way of thinking"  
 <br/>
 
