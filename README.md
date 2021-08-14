@@ -138,4 +138,68 @@ git tag release_1 -a "Some message"
 > Switch don't work with tags, use checkout.
 
 ## Recap
-Branches, merges, rebases and tags are the main features to turn Git from a `stupid content tracker` into a full Version Control System.
+Branches, merges, rebases and tags are the main features to turn Git from a `stupid content tracker` into a full Version Control System.  
+
+<br />
+
+## Distributed Version Control
+After run `git clone` Git add a few lines to the configuration of your repository.  
+
+```shell
+vim .git/config
+```  
+
+<br />  
+
+![config after git clone](./assets/010.png)  
+
+<br />
+
+You can list all branches with `git branch --all` to show all references.  
+
+<br />
+
+> Like a local branch , a remote branch is just a reference to a commit.  
+
+<br />
+
+We can use `git show-ref BranchName` to see which commits they're point at.  
+
+<br />
+
+> You ***fetch*** and ***merge***, then push.  
+
+<br />
+
+> You simplify with ***pull***, then push.  
+
+<br />
+
+> ***NEVER REBASE SHARED COMMITS.***  
+
+<br />
+
+## The open source Workflow.  
+
+- Chose a project from another user in `github`.
+- `Fork` this to your `github` account.
+- Clone the project, from your `github` account, to your local machine.  <br/>
+
+![fork and clone](./assets/011.png)  <br />
+
+- At the point of view of git there is not connection between our project and the original project that we forked from Github.
+- We want to track changes from the original project.
+- We need to add another remote to point to original project.
+- By convention this remote is called `upstream`.  <br/>
+
+![two remotes](./assets/012.png) . <br />
+
+- Now we can synchronize all our local changes with the origin.
+- We can commit our local changes and just push those changes to origin.
+- If there are changes on upstream we can pull them into our local project, solve conflicts, and them push them to origin.  <br />
+
+![update fro upstream](./assets/013.png)  <br />
+
+- To push changes to upstream we send a `PR (Pull Request)` to upstream maintainer.  <br />
+
+![pull request](./assets/014.png)
