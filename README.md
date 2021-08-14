@@ -36,7 +36,7 @@ git cat-file -p hash
 ![git objects](./assets/001.png)
 
 ## Branches demystified
-Git put branches in a directory called `refs/heads`. A Branch is just a reference to a commit.
+Git put branches in a directory called `.git/refs/heads`. A Branch is just a reference to a commit.
 
 > HEAD is just a reference to a branch, a pointer to a pointer.
 
@@ -82,3 +82,33 @@ If you want to save this commits you most act now:
 <hr />
 
 ## Rebasing made Simple
+Let's start with the repository in this state.
+![start with two branches](./assets/006.png)
+
+Now let's rebase `spaghetti` branch on `main` branch
+```shell
+git rebase main
+```
+- Git looks for the first commit in `spaghetti` branch that is also a commit in `main`
+![first commit shared](./assets/007.png)
+- Git detaches the entire  `spaghetti` branch from this commit and moves it on top of main. Its changes the base of this branche.
+![detache and rebase](./assets/008.png)
+- To sync `main` with `spaghetti` we need to switch to main and execute `git rebase spaghetti`.
+![rebase main against spaghetti ](./assets/009.png)
+
+> When in doubt, just merge.
+
+## Tag
+Tags is one of the features that turn Git into a revision Control System.
+A `Tag` is like a label for a commit.
+```shell
+git tag release_1
+```
+We can create a simple tag with just a name, like a simple label, or an annotated tag with additional metadata.
+```shell
+git tag release_1 -a "Some message"
+```
+> Switch don't work with tags, use checkout.
+
+## Recap
+Branches, merges, rebases and tags are the main features to turn Git from a `stupid content tracker` into a full Version Control System.
