@@ -89,4 +89,39 @@ To do this we use the command `checkout`. This command do two things.
 
 <br />
 
+## 	The Four Areas: Git Reset
 
+**Reset** moves the current branch, and optionally copies data from the Repository to the other areas.  <br />
+
+### Step 1
+- Start here.  <br />
+  ![start reset](../assets/mast-012.png)  <br />
+- The first step: It moves a branch, generally the current branch, the branch that **HEAD** is point to.  <br />
+  ![start reset](../assets/mast-013.png)  <br />
+- Reset doesn't move **HEAD.**
+- **HEAD** is stull point to the same branch it was point at before, but branch itself is moving.
+
+### Step 2
+The second step: Move data from `Repository` to other `Areas`.  <br />
+- `git reset --hard`  
+- This reset copies data from **new current commit** to `Working Area` and `Index Area`.  <br />
+  ![git reset hard](../assets/mast-014.png)  <br />
+- `git reset --mixed`  
+- This reset copies data from **new current commit** to `Index Area`, but leaves the `Working Area` alone.  <br /> 
+- This is the default behaviour of `git reset`.
+  ![git reset hard](../assets/mast-015.png)  <br />
+- `git reset --soft`  
+- This reset don't touch any of these areas. Just move the branch and skip step 2.  <br /> 
+  ![git reset hard](../assets/mast-016.png)  <br />
+
+### Reset examples
+- Align `Index Area` with `Repository` and don't touch `Working Area`.
+  ```shel
+  git reset HEAD
+  ```
+  ![git reset hard](../assets/mast-017.png)  <br />
+- Go back to clean status and align `Index Area` and `Working Area` with `Repository`.
+  ```shel
+  git reset --hard HEAD
+  ```
+  ![git reset hard](../assets/mast-018.png)  <br />
