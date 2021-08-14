@@ -1,5 +1,7 @@
 # How Git Works
 
+[go to matering git](./pages/mastering.md)
+
 > If you want to master Git, don't worry about learning the commands. instead, learn the model.  
 
 - Git is: 
