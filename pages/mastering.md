@@ -147,4 +147,34 @@ There is only one command that affects the stash, `git stash`. The data in the s
 - We can read the content of the `Stash Area` with `git stash list`.
 - To retrieve the stuff we stashed we use the command `git stash apply`, this will move data from the `Stash Area` to `Working Area` and `Index Area`.
   ![start stash](../assets/mast-024.png)  <br />
-- To clear the `Stash Area` use `git stash clear`
+- To clear the `Stash Area` use `git stash clear`  <br />
+
+## History: Exploring the Past
+
+### Referencing Commits
+- `git log --graph --decorate --oneline` 
+  - show graph-like structure 
+  - show the positional references, like branches and HEAD.
+  - show each commit in one line
+- `git show HEAD^`
+  - start at HEAD
+  - The caret means the parent commit
+-  `git show HEAD^^`
+  - start at HEAD
+  - show parent of parent of HEAD
+- `git show HEAD~2`
+  - go to HEAD and go back two commits
+- `git show HEAD@{"1 month ago"}`
+
+### Tracking Changes in History
+Explore how commits are connected.  <br />
+
+- `git blame file` shows where the lines in a file are coming from.
+- `git diff` can be used to compare the contents of two areas, two commits, two branches
+
+### Browsing the Log
+- `git log --grep filterCriteria --oneline` filter the commits.
+- `git log -Gapples --patch` all the commits that added or removed the word **apples** from any file with `git log -G`
+  - `--patch` is used to show which lines are impactedby this changes.
+- `git log specificBranch..main --oneline`compare commits that are in the main branch but not in other specific branch
+  - read as: go from **specificBranch** to **main** and show all the new commits
