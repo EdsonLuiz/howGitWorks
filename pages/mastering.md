@@ -127,3 +127,24 @@ The second step: Move data from `Repository` to other `Areas`.  <br />
   git reset --hard HEAD
   ```
   ![git reset hard](../assets/mast-018.png)  <br />
+
+## 	The Four Areas: Advanced Tools
+
+### Stashing Data
+There is only one command that affects the stash, `git stash`. The data in the stash don't change unless you really want to.
+- Start from clean status.  <br />
+  ![start stash](../assets/mast-019.png)  <br />
+- Create a new file in `Working Area` and move this file to `Index Area` with command `git add`
+  ![start stash](../assets/mast-020.png)  <br />
+- Update an existing file in `Working Area`.
+  ![start stash](../assets/mast-021.png)  <br />
+- Now I need to do some work on another branch, but I don't want my last work to get in the way. Here is where `git stash` can be used. We can store all changes in the **stash** and they stay there, safely, until we decide to get back.
+- Store the current status with `git stash save` or `git stash`, and also use the option `--include-untracked`. It means also **stash** files that are still untracked, files that are entirelly new in the `Working Area`. By default `git stash` ignore untracked files.
+- Git takes all the data from the `Working Area` and `Index Area` that is not in the current commit in the `Repository`, and copies all of that data to the **stash.**
+  ![start stash](../assets/mast-022.png)  <br />
+- After the copy to `Stash Area` git checks out the current commit and align all three areas again.
+  ![start stash](../assets/mast-023.png)  <br />
+- We can read the content of the `Stash Area` with `git stash list`.
+- To retrieve the stuff we stashed we use the command `git stash apply`, this will move data from the `Stash Area` to `Working Area` and `Index Area`.
+  ![start stash](../assets/mast-024.png)  <br />
+- To clear the `Stash Area` use `git stash clear`
